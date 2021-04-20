@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -102,22 +103,28 @@
             </g>
         </symbol>
     </svg>
+    <div class="header" id="header">
+        <div class="container">
+            
+                <div class="header__inner">
+                    <div class="header__logo"><h3>Indicorp</h3></div>
+                    <div class="nav" id="nav">
+                        <a href="#" data-scroll="#home">Home</a>
+                        <a href="#" data-scroll="#product">Product</a>
+                        <a href="#" data-scroll="#pricing">Pricing</a>
+                        <a href="#" data-scroll="#contacts">Contact</a>
+                    </div>
+                    <button class="burger" id="navToggle">
+                        <span class="burger-item">Menu</span>
+                    </button>
+                </div>
+            
+        </div>
+    </div>
     <!-- Home -->
-    <div class="home">
+    <div class="home"  id="home">
         <div class="container">
             <div class="home__inner">
-            <div class="header">
-                <div class="header__logo"><h3>Indicorp</h3></div>
-                <div class="nav">
-                    <a href="#">Home</a>
-                    <a href="#">Product</a>
-                    <a href="#">Picing</a>
-                    <a href="#">Contact</a>
-                </div>
-                <button class="burger">
-                    <span class="burger-item">Menu</span>
-                </button>
-            </div>
             <div class="home__content">
                 <h1>EMPOWER YOUR BUSINESS</h1>
                 <h4 class="home__text">We know how large objects will act, 
@@ -176,7 +183,7 @@
     </div>   <!-- /Home -->
 
     <!-- Product -->
-    <div class="product">
+    <div class="product" id="product">
         <div class="container">
             <div class="product__inner">
                 <div class="product__content content">
@@ -327,7 +334,7 @@
     <!-- /Advice -->
 
     <!-- Pricing -->
-    <div class="pricing">
+    <div class="pricing" id="pricing">
         <div class="container">
             <div class="pricing__inner">
                 <div class="pricing__content content">
@@ -425,7 +432,7 @@
     <!-- /Logos -->
     <div class="blue-bg"></div>
     <!-- Contacts -->
-    <div class="contact">
+    <div class="contact" id="contacts">
         <div class="container">
             <div class="contacts__inner">
                 <div class="contacts__content content">
@@ -583,5 +590,6 @@
         </div>
     </div>
     <!-- /Footer -->
+    <script src="script.js"></script>
 </body>
 </html>
