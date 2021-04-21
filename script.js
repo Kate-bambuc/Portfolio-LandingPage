@@ -1,71 +1,85 @@
-$(function() {
+window.addEventListener('DOMContentLoaded', () => {
 
-	/*Fixed Header*/
+	const header = document.querySelector('#header'),
+		home = document.querySelector('#home'),
+		homeH = home.scrollHeight,
+		navElements = document.querySelectorAll('[data-scroll'),
+		nav = document.querySelector('#nav'),
+		navToggle = document.querySelector('#navToggle'),
+		btns = document.querySelectorAll('#btn'),
+		modal = document.querySelector('#modal'),
+		modalClose = document.querySelector('#modal__close');
 
-	let header = $("#header");
-	let home = $("#home");
-	let homeH = home.innerHeight();
-	let scrollPos = $(window).scrollTop();
-	let nav = $("#nav");
-
-	checkScroll(scrollPos, homeH);
+	let scrollPos = document.documentElement.scrollTop;		
 
 
-	$(window).on("scroll resize", function() {
+	// Fixed Header
+		checkScroll(scrollPos);
 
-		homeH = home.innerHeight();
+		function checkScroll(scrollPos) {
+			if (scrollPos > homeH) {
+				header.classList.add('fixed');
+			} else {
+				header.classList.remove('fixed');
+			}
+		}
 
-		scrollPos = $(this).scrollTop();
+	
+		document.addEventListener('scroll', () => {
+			scrollPos = window.scrollY;
+			checkScroll(scrollPos, homeH);
+		});
 
-		checkScroll(scrollPos, homeH);
 
+		// Smooth scroll
+
+		navElements.forEach (item=> {
+			
+			item.addEventListener('click', (event) => {
+				event.preventDefault();
+
+			let navElement = item.getAttribute('data-scroll');
+			
+			//const topOffset = document.getElementById(navElement);
+			//let navOffset = navElements.getBoundingClientRect().top;
+			let navOffset = navElement.offsetTop;
+			console.log(navElement, navOffset);
+
+		});
 	});
 
-	function checkScroll(scrollPos, homeH) {
-		if( scrollPos > homeH ) {
+	// Burger Menu
 
-			header.addClass("fixed");
+	navToggle.addEventListener('click', (event) => {
+		event.preventDefault();
 
-		} else {
+		nav.classList.toggle('show');
+	});
 
-			header.removeClass("fixed");
+	// Modal
 
+	btns.forEach ( btn => {
+		btn.addEventListener('click', (event) => {
+			event.preventDefault();
+
+			modal.classList.toggle('show');
+			document.body.style.overflow = 'hidden'; 
+		});
+	});
+
+	modalClose.addEventListener('click', () => {
+		fooClose();
+	});
+	modal.addEventListener('click', (event) => {
+		if (event.target === modal) {
+		fooClose();
 		}
+	});
+
+
+	function fooClose() {
+		modal.classList.toggle('show');
+			document.body.style.overflow = ''; 
 	}
 
-
-	/*Smooth Scroll*/
-		$("[data-scroll]").on("click", function(event) {
-
-			event.preventDefault();
-
-			let elementId = $(this).data('scroll');
-			let elementOffset = $(elementId).offset().top;
-
-			nav.removeClass("show");
-
-
-			$("html, body").animate({
-
-				scrollTop: elementOffset - 70
-			}, 700);
-
-		});
-
-
-
-		/*Nav Toggle*/
-		
-
-		$("#navToggle").on("click", function(event) {
-
-			event.preventDefault();
-
-			nav.toggleClass("show");
-
-		});
-
-
-
 });
-
