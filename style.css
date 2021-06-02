@@ -184,7 +184,7 @@ p {
 /* Home */
 .home {
     
-    background: url('../img/home_bg.jpg') center no-repeat ;
+    background: url('img/home_bg.jpg') center no-repeat ;
     background-size: cover;
 }
 .home__inner {
