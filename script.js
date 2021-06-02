@@ -40,8 +40,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 			let id = item.getAttribute('data-scroll');
 			
-			//const topOffset = document.getElementById(navElement);
-			//let navOffset = navElements.getBoundingClientRect().top;
+			
 			document.querySelector(id).scrollIntoView({
 				behavior: 'smooth',
 				block: 'start'
